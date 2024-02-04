@@ -89,3 +89,6 @@ gen-custom: get-proto-deps ensure-outdir build-custom-plugin
 		--bash_out=$(outdir) \
 		--bash_opt=paths=source_relative \
 		$(proto_files)
+
+lint:
+	@go run github.com/bufbuild/buf/cmd/buf@latest lint
