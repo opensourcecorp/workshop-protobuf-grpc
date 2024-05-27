@@ -3,18 +3,18 @@ Example Python gRPC client that calls the gRPC server
 """
 # Need to modify path search for protobuf output dir, because... Python.
 # sys.path is modified to be able to be called from either this, or the
-# parent/root dir. That way, we can import starting from the 'pb' package as
-# intended.
+# parent/root dir. That way, we can import starting from the 'generated.python'
+# package as intended.
 import os
 import sys
 sys.path.append(os.path.abspath("."))
 sys.path.append(os.path.abspath(".."))
 
 import grpc
-import pb.echo.v1.echo_pb2 as echo_pb2
-import pb.echo.v1.echo_pb2_grpc as echo_pb2_grpc
-import pb.employees.v1.employees_pb2 as employees_pb2
-import pb.employees.v1.employees_pb2_grpc as employees_pb2_grpc
+import generated.python.echo.v1.echo_pb2 as echo_pb2
+import generated.python.echo.v1.echo_pb2_grpc as echo_pb2_grpc
+import generated.python.employees.v1.employees_pb2 as employees_pb2
+import generated.python.employees.v1.employees_pb2_grpc as employees_pb2_grpc
 
 # Note that if you did NOT specify --pyi_out in the protoc call, you won't get
 # editor help like tab completion for the generated code -- everything comes out

@@ -9,8 +9,8 @@ import (
 
 	gwruntime "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
 
-	echopb "github.com/ryapric/workshops/protobuf-grpc/pb/echo/v1"
-	employeespb "github.com/ryapric/workshops/protobuf-grpc/pb/employees/v1"
+	echopb "github.com/ryapric/workshops/protobuf-grpc/generated/go/echo/v1"
+	employeespb "github.com/ryapric/workshops/protobuf-grpc/generated/go/employees/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials/insecure"
@@ -21,7 +21,7 @@ const grpcAddr = "localhost:8080"
 const httpAddr = "localhost:8081"
 
 // Used to simulate a database of employee records
-var employeeData = map[string]*employeespb.GetEmployeeResponse_Employee{
+var employeeData = map[string]*employeespb.Employee{
 	"Tom": {
 		FullName: "Thomas Anderson",
 		Id:       1,

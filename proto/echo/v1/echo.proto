@@ -6,7 +6,7 @@ package echo.v1;
 
 // So the Go output knows its own import path -- this needs to match the output
 // directory structure that your protoc invocation creates!
-option go_package = "github.com/opensourcecorp/workshops/protobuf-grpc/pb/echo/v1";
+option go_package = "github.com/opensourcecorp/workshops/protobuf-grpc/generated/go/echo/v1";
 
 // TODO: once I figure out how Java works lol
 // // You also need to specify any other appropriate static options for other

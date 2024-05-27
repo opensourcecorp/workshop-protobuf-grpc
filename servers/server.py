@@ -14,10 +14,10 @@ import sys
 sys.path.append(os.path.abspath("."))
 sys.path.append(os.path.abspath(".."))
 
-import pb.echo.v1.echo_pb2 as echo_pb2
-import pb.echo.v1.echo_pb2_grpc as echo_pb2_grpc
-import pb.employees.v1.employees_pb2 as employees_pb2
-import pb.employees.v1.employees_pb2_grpc as employees_pb2_grpc
+import generated.python.echo.v1.echo_pb2 as echo_pb2
+import generated.python.echo.v1.echo_pb2_grpc as echo_pb2_grpc
+import generated.python.employees.v1.employees_pb2 as employees_pb2
+import generated.python.employees.v1.employees_pb2_grpc as employees_pb2_grpc
 
 addr = "127.0.0.1:8080"
 

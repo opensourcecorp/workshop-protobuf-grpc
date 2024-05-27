@@ -8,8 +8,8 @@ import (
 	"os"
 	"strings"
 
-	echopb "github.com/ryapric/workshops/protobuf-grpc/pb/echo/v1"
-	employeespb "github.com/ryapric/workshops/protobuf-grpc/pb/employees/v1"
+	echopb "github.com/ryapric/workshops/protobuf-grpc/generated/go/echo/v1"
+	employeespb "github.com/ryapric/workshops/protobuf-grpc/generated/go/employees/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/credentials/insecure"
 )

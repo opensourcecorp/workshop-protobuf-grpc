@@ -57,15 +57,7 @@ paths:
                                 $ref: '#/components/schemas/Status'
 components:
     schemas:
-        GetEmployeeResponse:
-            type: object
-            properties:
-                employee:
-                    allOf:
-                        - $ref: '#/components/schemas/GetEmployeeResponse_Employee'
-                    description: Contains Employee record details
-            description: Response from the GetEmployee call
-        GetEmployeeResponse_Employee:
+        Employee:
             type: object
             properties:
                 id:
@@ -78,6 +70,14 @@ components:
                     type: string
                     description: Employee birthday, in RFC 3339 date format
             description: Defines the record structure for each employee
+        GetEmployeeResponse:
+            type: object
+            properties:
+                employee:
+                    allOf:
+                        - $ref: '#/components/schemas/Employee'
+                    description: Contains Employee record details
+            description: Response from the GetEmployee call
         GoogleProtobufAny:
             type: object
             properties:

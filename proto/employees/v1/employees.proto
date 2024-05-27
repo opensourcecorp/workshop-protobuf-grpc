@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package employees.v1;
 
-option go_package = "github.com/opensourcecorp/workshops/protobuf-grpc/pb/employees/v1";
+option go_package = "github.com/opensourcecorp/workshops/protobuf-grpc/generated/go/employees/v1";
 // TODO:
 // option java_package = "org.opensourcecorp.workshops.protobuf_grpc.employees.v1";
 
@@ -40,16 +40,6 @@ message GetEmployeeRequest {
 
 // Response from the GetEmployee call
 message GetEmployeeResponse {
-  // Defines the record structure for each employee
-  message Employee {
-    // Employee ID number
-    int64 id = 1;
-    // Employee full name
-    string full_name = 2;
-    // Employee birthday, in RFC 3339 date format
-    string birthday = 3;
-  }
-
   // Contains Employee record details
   Employee employee = 1;
 }
@@ -63,4 +53,14 @@ message ListEmployeesRequest {}
 message ListEmployeesResponse {
   // List of short (friendly) names for Employees
   repeated string short_names = 1;
+}
+
+// Defines the record structure for each employee
+message Employee {
+  // Employee ID number
+  int64 id = 1;
+  // Employee full name
+  string full_name = 2;
+  // Employee birthday, in RFC 3339 date format
+  string birthday = 3;
 }

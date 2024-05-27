@@ -20,11 +20,12 @@ number. Protocol buffers themselves are generated via:
 run from either this root directory or the `proto/` directory. You can inspect
 the `proto/Makefile` to see the commands needed to generate the code.
 
-To generate code using the custom plugin defined in `protoc-gen-bash`, you can run:
+To generate code using the custom plugin defined in `protoc-gen-bash`, you can
+run:
 
     make gen-custom
 
-The generated protobuf code itself is stored in the `pb/` directory tree.
+All generated protobuf code itself is stored in the `generated/` directory tree.
 
 One of the plugins used (`protoc-gen-openapi`) generates OpenAPI/Swagger specs.
 You can view those in a more human-readable way by pasting them
