@@ -11,7 +11,7 @@ proto_deps_sources :=	\
 proto_deps_import_flags := \
 	-I=. \
 	-I=$(proto_deps_rootdir)/github.com/googleapis/googleapis \
-	-I=$(proto_deps_rootdir)/github.com/protocolbuffers/protobuf/src \
+	-I=$(proto_deps_rootdir)/github.com/protocolbuffers/protobuf/src
 
 # Needed so that the Python generation works off of the virtual environment's
 # dependencies
@@ -42,8 +42,22 @@ ensure-outdirs:
 # This is a WAY heavier protoc call than you'd probably see in real life, but
 # this demonstrates how many outputs & options you can provide.
 #
-# Most lang/output code can be generated directly by a single call to protoc
-# with available plugins ...
+# Notes for each codegen flag block are as follows, since you can't
+# inline-comment a multiline shell command:
+#
+# --go*: Options for pure Go
+#
+# --go-grpc*: Options for Go gRPC
+#
+# --grpc-gateway*: Options for Go gRPC-HTTP transcoding gateway
+#
+# --openapi*: Options for OpenAPI specification
+#
+# --python*/pyi*: Options for Python
+#
+# --descriptor_set_out/include_imports: Generates a `protoset` file that can be
+# used by some tools to make determining the contents of a Protobuf
+# specification easier when encountering a binary representation
 generate: get-proto-deps ensure-outdirs
 	@printf 'Generating protobuf code...\n'
 	@$(pyvenv-activate) && \

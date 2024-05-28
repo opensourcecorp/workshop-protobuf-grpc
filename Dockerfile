@@ -28,7 +28,7 @@ RUN apt-get update && apt-get install -y \
 COPY Makefile .
 RUN make setup
 COPY ./protoc-gen-bash ./protoc-gen-bash
-RUN make gen
+RUN make generate
 
 # We copy these up last because they depend on the generated code (which you
 # will note we did not copy into this image)
@@ -51,5 +51,5 @@ RUN for serverlang in go py ; do \
         sleep 2 ; \
       done ; \
     done
-RUN bash ./pb/echo/v1/echo_bash.pb.sh && \
-    bash ./pb/employees/v1/employees_bash.pb.sh
+RUN bash ./generated/bash/echo/v1/echo_bash.pb.sh && \
+    bash ./generated/bash/employees/v1/employees_bash.pb.sh
