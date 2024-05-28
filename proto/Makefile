@@ -13,17 +13,9 @@ proto_deps_import_flags := \
 	-I=$(proto_deps_rootdir)/github.com/googleapis/googleapis \
 	-I=$(proto_deps_rootdir)/github.com/protocolbuffers/protobuf/src \
 
-# Can be invoked so that the Python generation works off of the virtual
-# environment's dependencies
+# Needed so that the Python generation works off of the virtual environment's
+# dependencies
 pyvenv-activate = source ../venv/bin/activate
-
-pyvenv:
-	@[[ -d ../venv ]] || \
-	{ \
-		python3 -m venv ../venv && \
-		$(pyvenv-activate) && \
-		python3 -m pip install -r ../requirements.txt \
-	; }
 
 get-proto-deps:
 	@mkdir -p /tmp/proto-deps
@@ -52,7 +44,7 @@ ensure-outdirs:
 #
 # Most lang/output code can be generated directly by a single call to protoc
 # with available plugins ...
-gen: get-proto-deps pyvenv ensure-outdirs
+generate: get-proto-deps ensure-outdirs
 	@printf 'Generating protobuf code...\n'
 	@$(pyvenv-activate) && \
 	protoc \
@@ -99,7 +91,7 @@ gen: get-proto-deps pyvenv ensure-outdirs
 build-custom-plugin:
 	@make -s -C ../protoc-gen-bash build
 
-gen-custom: get-proto-deps ensure-outdirs build-custom-plugin
+generate-custom: get-proto-deps ensure-outdirs build-custom-plugin
 	@printf 'Generating code using custom protoc plugin...\n'
 	@protoc \
 		--plugin=../protoc-gen-bash/build/protoc-gen-bash \

@@ -58,7 +58,7 @@ func printMessages(g *protogen.GeneratedFile, msgs []*protogen.Message) {
 		}
 		// In case a message has no fields, like ListEmployeesRequest
 		if len(fields) == 0 {
-			fields = []string{"None"}
+			fields = []string{"<none>"}
 		}
 
 		g.P(`  `, msg.Desc.FullName(), " (fields: ", strings.Join(fields, ", "), ")")
