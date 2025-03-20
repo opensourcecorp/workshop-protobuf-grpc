@@ -24,14 +24,14 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12\x65\x63ho/v1/echo.proto\x12\x07\x65\x63ho.v1\"\x1f\n\x0b\x45\x63hoRequest\x12\x10\n\x03msg\x18\x01 \x01(\tR\x03msg\" \n\x0c\x45\x63hoResponse\x12\x10\n\x03msg\x18\x01 \x01(\tR\x03msg2B\n\x0b\x45\x63hoService\x12\x33\n\x04\x45\x63ho\x12\x14.echo.v1.EchoRequest\x1a\x15.echo.v1.EchoResponseBHZFgithub.com/opensourcecorp/workshops/protobuf-grpc/generated/go/echo/v1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x12\x65\x63ho/v1/echo.proto\x12\x07\x65\x63ho.v1\"\x1f\n\x0b\x45\x63hoRequest\x12\x10\n\x03msg\x18\x01 \x01(\tR\x03msg\" \n\x0c\x45\x63hoResponse\x12\x10\n\x03msg\x18\x01 \x01(\tR\x03msg2B\n\x0b\x45\x63hoService\x12\x33\n\x04\x45\x63ho\x12\x14.echo.v1.EchoRequest\x1a\x15.echo.v1.EchoResponseBHZFgithub.com/opensourcecorp/workshop-protobuf-grpc/generated/go/echo/v1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'echo.v1.echo_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'ZFgithub.com/opensourcecorp/workshops/protobuf-grpc/generated/go/echo/v1'
+  _globals['DESCRIPTOR']._serialized_options = b'ZFgithub.com/opensourcecorp/workshop-protobuf-grpc/generated/go/echo/v1'
   _globals['_ECHOREQUEST']._serialized_start=31
   _globals['_ECHOREQUEST']._serialized_end=62
   _globals['_ECHORESPONSE']._serialized_start=64

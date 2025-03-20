@@ -12,7 +12,7 @@ package employees.v1;
 // these annotations
 import "google/api/annotations.proto";
 
-option go_package = "github.com/opensourcecorp/workshops/protobuf-grpc/generated/go/employees/v1";
+option go_package = "github.com/opensourcecorp/workshop-protobuf-grpc/generated/go/employees/v1";
 
 // Service for interacting with an employee record database
 service EmployeesService {

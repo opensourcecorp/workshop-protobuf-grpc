@@ -25,14 +25,14 @@ _sym_db = _symbol_database.Default()
 from google.api import annotations_pb2 as google_dot_api_dot_annotations__pb2
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x65mployees/v1/employees.proto\x12\x0c\x65mployees.v1\x1a\x1cgoogle/api/annotations.proto\"3\n\x12GetEmployeeRequest\x12\x1d\n\nshort_name\x18\x01 \x01(\tR\tshortName\"I\n\x13GetEmployeeResponse\x12\x32\n\x08\x65mployee\x18\x01 \x01(\x0b\x32\x16.employees.v1.EmployeeR\x08\x65mployee\"\x16\n\x14ListEmployeesRequest\"8\n\x15ListEmployeesResponse\x12\x1f\n\x0bshort_names\x18\x01 \x03(\tR\nshortNames\"S\n\x08\x45mployee\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x1b\n\tfull_name\x18\x02 \x01(\tR\x08\x66ullName\x12\x1a\n\x08\x62irthday\x18\x03 \x01(\tR\x08\x62irthday2\x98\x02\n\x10\x45mployeesService\x12\x83\x01\n\x0bGetEmployee\x12 .employees.v1.GetEmployeeRequest\x1a!.employees.v1.GetEmployeeResponse\"/\x82\xd3\xe4\x93\x02)\x12\'/employees/v1/get_employee/{short_name}\x12~\n\rListEmployees\x12\".employees.v1.ListEmployeesRequest\x1a#.employees.v1.ListEmployeesResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/employees/v1/list_employeesBMZKgithub.com/opensourcecorp/workshops/protobuf-grpc/generated/go/employees/v1b\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x1c\x65mployees/v1/employees.proto\x12\x0c\x65mployees.v1\x1a\x1cgoogle/api/annotations.proto\"3\n\x12GetEmployeeRequest\x12\x1d\n\nshort_name\x18\x01 \x01(\tR\tshortName\"I\n\x13GetEmployeeResponse\x12\x32\n\x08\x65mployee\x18\x01 \x01(\x0b\x32\x16.employees.v1.EmployeeR\x08\x65mployee\"\x16\n\x14ListEmployeesRequest\"8\n\x15ListEmployeesResponse\x12\x1f\n\x0bshort_names\x18\x01 \x03(\tR\nshortNames\"S\n\x08\x45mployee\x12\x0e\n\x02id\x18\x01 \x01(\x03R\x02id\x12\x1b\n\tfull_name\x18\x02 \x01(\tR\x08\x66ullName\x12\x1a\n\x08\x62irthday\x18\x03 \x01(\tR\x08\x62irthday2\x98\x02\n\x10\x45mployeesService\x12\x83\x01\n\x0bGetEmployee\x12 .employees.v1.GetEmployeeRequest\x1a!.employees.v1.GetEmployeeResponse\"/\x82\xd3\xe4\x93\x02)\x12\'/employees/v1/get_employee/{short_name}\x12~\n\rListEmployees\x12\".employees.v1.ListEmployeesRequest\x1a#.employees.v1.ListEmployeesResponse\"$\x82\xd3\xe4\x93\x02\x1e\x12\x1c/employees/v1/list_employeesBMZKgithub.com/opensourcecorp/workshop-protobuf-grpc/generated/go/employees/v1b\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'employees.v1.employees_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   _globals['DESCRIPTOR']._loaded_options = None
-  _globals['DESCRIPTOR']._serialized_options = b'ZKgithub.com/opensourcecorp/workshops/protobuf-grpc/generated/go/employees/v1'
+  _globals['DESCRIPTOR']._serialized_options = b'ZKgithub.com/opensourcecorp/workshop-protobuf-grpc/generated/go/employees/v1'
   _globals['_EMPLOYEESSERVICE'].methods_by_name['GetEmployee']._loaded_options = None
   _globals['_EMPLOYEESSERVICE'].methods_by_name['GetEmployee']._serialized_options = b'\202\323\344\223\002)\022\'/employees/v1/get_employee/{short_name}'
   _globals['_EMPLOYEESSERVICE'].methods_by_name['ListEmployees']._loaded_options = None

@@ -1,4 +1,4 @@
-module github.com/ryapric/workshops/protobuf-grpc
+module github.com/ryapric/workshop-protobuf-grpc
 
 go 1.22.0
 

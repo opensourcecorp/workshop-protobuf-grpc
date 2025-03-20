@@ -43,4 +43,4 @@ client-grpcurl:
 
 # Verifies behavior of tooling & other code in the repo
 test-docker:
-	@docker build --progress=plain -t opensourcecorp.org/workshops/protobuf-grpc:latest .
+	@docker build --progress=plain -t opensourcecorp.org/workshop-protobuf-grpc:latest .
