@@ -8,8 +8,8 @@ import (
 	"net/http"
 
 	gwruntime "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	echopb "github.com/ryapric/workshop-protobuf-grpc/generated/go/echo/v1"
-	employeespb "github.com/ryapric/workshop-protobuf-grpc/generated/go/employees/v1"
+	echopb "github.com/opensourcecorp/workshop-protobuf-grpc/generated/go/echo/v1"
+	employeespb "github.com/opensourcecorp/workshop-protobuf-grpc/generated/go/employees/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials/insecure"
