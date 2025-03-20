@@ -1,3 +1,5 @@
+// TODO: replace "syntax" with this once all plugins support Editions
+// edition = "2023";
 syntax = "proto3";
 
 // Proto packages should match the directory structure in your tree. The version

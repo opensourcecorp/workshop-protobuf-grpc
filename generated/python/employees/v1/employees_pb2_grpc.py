@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from . import employees_pb2 as employees_dot_v1_dot_employees__pb2
+from employees.v1 import employees_pb2 as employees_dot_v1_dot_employees__pb2
 
 
 class EmployeesServiceStub(object):
@@ -19,12 +19,12 @@ class EmployeesServiceStub(object):
                 '/employees.v1.EmployeesService/GetEmployee',
                 request_serializer=employees_dot_v1_dot_employees__pb2.GetEmployeeRequest.SerializeToString,
                 response_deserializer=employees_dot_v1_dot_employees__pb2.GetEmployeeResponse.FromString,
-                )
+                _registered_method=True)
         self.ListEmployees = channel.unary_unary(
                 '/employees.v1.EmployeesService/ListEmployees',
                 request_serializer=employees_dot_v1_dot_employees__pb2.ListEmployeesRequest.SerializeToString,
                 response_deserializer=employees_dot_v1_dot_employees__pb2.ListEmployeesResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class EmployeesServiceServicer(object):
@@ -64,6 +64,7 @@ def add_EmployeesServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'employees.v1.EmployeesService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('employees.v1.EmployeesService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -82,11 +83,21 @@ class EmployeesService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/employees.v1.EmployeesService/GetEmployee',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/employees.v1.EmployeesService/GetEmployee',
             employees_dot_v1_dot_employees__pb2.GetEmployeeRequest.SerializeToString,
             employees_dot_v1_dot_employees__pb2.GetEmployeeResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
 
     @staticmethod
     def ListEmployees(request,
@@ -99,8 +110,18 @@ class EmployeesService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/employees.v1.EmployeesService/ListEmployees',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/employees.v1.EmployeesService/ListEmployees',
             employees_dot_v1_dot_employees__pb2.ListEmployeesRequest.SerializeToString,
             employees_dot_v1_dot_employees__pb2.ListEmployeesResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)

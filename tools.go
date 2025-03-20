@@ -2,10 +2,11 @@
 
 package tools
 
-import (
-	_ "github.com/fullstorydev/grpcurl/cmd/grpcurl"
-	_ "github.com/google/gnostic/cmd/protoc-gen-openapi" // note that the commit pinned in go.mod is the earliest that this was usable in a way that allowed per-proto-package output
-	_ "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway"
-	_ "google.golang.org/grpc/cmd/protoc-gen-go-grpc"
-	_ "google.golang.org/protobuf/cmd/protoc-gen-go"
+var (
+	_ = "github.com/bufbuild/buf/cmd/buf@v1.50.1"
+	_ = "github.com/fullstorydev/grpcurl/cmd/grpcurl@v1.9.3"
+	_ = "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@v2.26.3"
+	_ = "github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@v2.26.3"
+	_ = "google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.5.1"
+	_ = "google.golang.org/protobuf/cmd/protoc-gen-go@v1.36.5"
 )

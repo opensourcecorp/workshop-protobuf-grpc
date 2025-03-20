@@ -1,8 +1,8 @@
+// TODO: replace "syntax" with this once all plugins support Editions
+// edition = "2023";
 syntax = "proto3";
 
 package employees.v1;
-
-option go_package = "github.com/opensourcecorp/workshops/protobuf-grpc/generated/go/employees/v1";
 // TODO:
 // option java_package = "org.opensourcecorp.workshops.protobuf_grpc.employees.v1";
 
@@ -12,6 +12,8 @@ option go_package = "github.com/opensourcecorp/workshops/protobuf-grpc/generated
 // these annotations
 import "google/api/annotations.proto";
 
+option go_package = "github.com/opensourcecorp/workshops/protobuf-grpc/generated/go/employees/v1";
+
 // Service for interacting with an employee record database
 service EmployeesService {
   // GetEmployee takes a short (friendly) name for a single employee, and
@@ -19,17 +21,13 @@ service EmployeesService {
   rpc GetEmployee(GetEmployeeRequest) returns (GetEmployeeResponse) {
     // This is where you use those imported annotations above -- this maps GET
     // requests over HTTP to the path specified, for example
-    option (google.api.http) = {
-      get: "/employees/v1/get_employee/{short_name}"
-    };
+    option (google.api.http) = {get: "/employees/v1/get_employee/{short_name}"};
   }
 
   // ListEmployees returns all possible employees' short names that can be used
   // in calls to GetEmployee
   rpc ListEmployees(ListEmployeesRequest) returns (ListEmployeesResponse) {
-    option (google.api.http) = {
-      get: "/employees/v1/list_employees"
-    };
+    option (google.api.http) = {get: "/employees/v1/list_employees"};
   }
 }
 

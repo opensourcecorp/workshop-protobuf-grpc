@@ -8,7 +8,6 @@ import (
 	"net/http"
 
 	gwruntime "github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-
 	echopb "github.com/ryapric/workshops/protobuf-grpc/generated/go/echo/v1"
 	employeespb "github.com/ryapric/workshops/protobuf-grpc/generated/go/employees/v1"
 	"google.golang.org/grpc"
@@ -111,9 +110,8 @@ func main() {
 	// this gRPC server, we send it off on its own goroutine
 	go func() {
 		log.Printf("starting gRPC server on %s...\n", listen.Addr())
-		err = grpcServer.Serve(listen)
-		if err != nil {
-			log.Fatalf("error starting gRPC server: %v", err)
+		if err := grpcServer.Serve(listen); err != nil {
+			log.Fatalf("starting gRPC server: %v", err)
 		}
 	}()
 
@@ -132,8 +130,7 @@ func main() {
 
 	gwmux := gwruntime.NewServeMux()
 
-	conn, err := grpc.DialContext(
-		context.Background(),
+	conn, err := grpc.NewClient(
 		grpcAddr,
 		dialOpts...,
 	)
@@ -141,8 +138,7 @@ func main() {
 		log.Fatalf("error dialing gRPC server: %v", err)
 	}
 
-	err = employeespb.RegisterEmployeesServiceHandler(ctx, gwmux, conn)
-	if err != nil {
+	if err := employeespb.RegisterEmployeesServiceHandler(ctx, gwmux, conn); err != nil {
 		log.Fatalf("error registering HTTP service handler: %v", err)
 	}
 
@@ -152,8 +148,7 @@ func main() {
 	}
 
 	log.Printf("starting HTTP server on %s...\n", httpAddr)
-	err = gwServer.ListenAndServe()
-	if err != nil {
+	if err := gwServer.ListenAndServe(); err != nil {
 		log.Fatalf("error starting HTTP server: %v", err)
 	}
 }

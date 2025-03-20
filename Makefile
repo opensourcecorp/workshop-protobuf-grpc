@@ -5,12 +5,10 @@ pyvenv = source ./venv/bin/activate
 # This target should be invoked on first clone to ensure the developer
 # workstation is setup correctly with dependencies
 setup:
-	@printf 'Initializing protobuf dependencies...\n'
-	@make -s -C proto get-proto-deps
-	@printf 'Getting Go package dependencies...\n'
-	@go mod tidy
 	@printf 'Getting Go tool dependencies from tools.go...\n'
 	@grep -E -o '".*"' tools.go | xargs -I{} go install {}
+	@printf 'Getting Go package dependencies...\n'
+	@go mod tidy
 	@printf 'Setting up Python dependencies...\n'
 	@python3 -m venv --clear venv && $(pyvenv) && python3 -m pip install -r requirements.txt
 	@printf 'Done with workstation setup!\n'
@@ -18,7 +16,8 @@ setup:
 # This target is just here to make regeneration easier without changing
 # directories
 generate:
-	@make -s -C ./proto generate generate-custom
+	@rm -rf ./generated
+	@make -s -C ./proto generate
 
 # Wrappers for running clients & servers of each language
 server-go:

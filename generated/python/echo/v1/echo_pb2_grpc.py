@@ -2,7 +2,7 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from . import echo_pb2 as echo_dot_v1_dot_echo__pb2
+from echo.v1 import echo_pb2 as echo_dot_v1_dot_echo__pb2
 
 
 class EchoServiceStub(object):
@@ -24,7 +24,7 @@ class EchoServiceStub(object):
                 '/echo.v1.EchoService/Echo',
                 request_serializer=echo_dot_v1_dot_echo__pb2.EchoRequest.SerializeToString,
                 response_deserializer=echo_dot_v1_dot_echo__pb2.EchoResponse.FromString,
-                )
+                _registered_method=True)
 
 
 class EchoServiceServicer(object):
@@ -55,6 +55,7 @@ def add_EchoServiceServicer_to_server(servicer, server):
     generic_handler = grpc.method_handlers_generic_handler(
             'echo.v1.EchoService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
+    server.add_registered_method_handlers('echo.v1.EchoService', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
@@ -78,8 +79,18 @@ class EchoService(object):
             wait_for_ready=None,
             timeout=None,
             metadata=None):
-        return grpc.experimental.unary_unary(request, target, '/echo.v1.EchoService/Echo',
+        return grpc.experimental.unary_unary(
+            request,
+            target,
+            '/echo.v1.EchoService/Echo',
             echo_dot_v1_dot_echo__pb2.EchoRequest.SerializeToString,
             echo_dot_v1_dot_echo__pb2.EchoResponse.FromString,
-            options, channel_credentials,
-            insecure, call_credentials, compression, wait_for_ready, timeout, metadata)
+            options,
+            channel_credentials,
+            insecure,
+            call_credentials,
+            compression,
+            wait_for_ready,
+            timeout,
+            metadata,
+            _registered_method=True)
